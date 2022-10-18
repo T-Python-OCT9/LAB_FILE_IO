@@ -7,6 +7,7 @@ while stop_the_app != "exit":
         user_notes = input("Please write your note: ")
         file.write(user_notes)
         file.close
+        continue
     else:
         user_list = input("do you want to list your To-Do items ? answer 'y' for yes and 'n for no. ")
         if user_list == "y":
@@ -16,5 +17,6 @@ while stop_the_app != "exit":
             print(file.readlines())
 
             file.close()
+            continue
         else:
             continue
