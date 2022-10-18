@@ -6,37 +6,27 @@
 - Then return again to ther first question and ask again, you coninue this untill the user types in "exit" , then you exit the program. and print to the user "thank you for using the To-Do program, come back again soon"
 '''
 
-# and answer.lower()!='y' and answer.lower()!='n'
-#def repeat(x :str)->str:
-answer='y'
-
-while answer.lower() != 'exit' :
+while (True):
+    user_input=''
     print("Helllo, do you want to add a new To-Do item?answer y for yes and n for no exit to end:")
-    answer :str =input("\n")
-    
-    
-    if answer.lower() == 'y':
+    user_input=input("\n")
+    if user_input=='y':
         file = open("to_do.txt", "a", encoding="utf-8")
-        # then ask the user to type in his new To-Do item
         file.write("*"+input("please enter your to do task:\n")+"\n")
-        content1 = file.read()
-        print(content1)
-        
-        if answer.lower() =='n':
-            answer2=input("\ndo you want to list your To-Do items ? answer y for yes and n for no\n")
-            if answer2.lower() == 'y':
-                file = open("to_do.txt", "r", encoding="utf-8")
-                content = file.read()
-                print(content)
-                answer='y'
-            if answer2.lower()=='n':
-                answer='y'
-            
-            
-    else:
-        print("not valid")
-        
-    if answer.lower() == 'exit':
-        print("thank you for using the To-Do program, come back again soon^_^")
         file.close()
+    if user_input=='n':
+        user_input=input("do you want to list your To-Do items ? answer y for yes and n for no. ")
+        if user_input=='y':
+            file = open("to_do.txt", "r", encoding="utf-8")
+            content = file.read()
+            print(content)
+            file.close()
+    if user_input=="exit":
+        print("thank you for using the To-Do program, come back again soon^_^")
+        break
+    if user_input!='n' and user_input!='y':
+        print("please enter valid value!")
+
+
+
 
