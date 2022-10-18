@@ -1,4 +1,4 @@
-stop_the_app = input("Right 'exit' if you want to exit the app: ")
+stop_the_app = input("Write 'exit' if you want to exit the app: ")
 
 while stop_the_app != "exit":
     user_answer = input("do you want to add a new To-Do item? answer by ""y"" for yes and ""n"" for no. ")
