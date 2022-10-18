@@ -11,22 +11,22 @@ def To_Do(answer : str):
         #  Then save that To-Do item inside the a file to_do.txt on a new line.
         if answer == "y":
             ToDo_file = open("to_do.txt", "a", encoding="utf-8")
-            item = input("Type whatever you want to add on your new TO-DO item! ")
-            ToDo_file.write(item)
+            item = input("Type whatever you want to add on your new TO-DO item! \n")
+            ToDo_file.write(item + "\n")
             ToDo_file.close()
-            answer= input("Would you like to add a new To-Do item? answer by 'y' for yes and 'n' for no ")
+            answer= input("Would you like to add a new To-Do item? answer by 'y' for yes and 'n' for no -> ")
         # - If the user answers no, then ask the user : do you want to list your To-Do items ? 
         # answer "y" for yes and "n" for no. 
         if answer == "n":
-                item = input("Do you want to list your To-Do items ? answer 'y' for yes and 'n' for no. ")
+                item = input("Do you want to list your To-Do items ? answer 'y' for yes and 'n' for no -> ")
                 if item == "y":
                     # - If the user answers yes for reading his To-Do list ,
                     #  then print a list of the To-Do items one item per line.
-                    ToDo_file = open("to_do.txt", "a+", encoding="utf-8")
-                    ToDo_file.seek(0)
-                    print(ToDo_file.readlines())
+                    ToDo_file = open("to_do.txt", "r", encoding="utf-8")
+                    items = ToDo_file.readlines()
                     ToDo_file.close()
-                    
+                    for item_ in items:
+                        print(item_)
                 elif item == "n":
                     # - Then return again to ther first question and ask again,
                     # To_Do(answer)
