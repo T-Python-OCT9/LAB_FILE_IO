@@ -1,2 +1,4 @@
-paly
-stady
+play video games
+learn python
+learn functions
+learn loops

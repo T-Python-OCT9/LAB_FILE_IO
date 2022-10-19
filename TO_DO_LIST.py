@@ -1,23 +1,30 @@
+def write_to_file(): # this function will create a file and write in it
+    note = input('type your note: ')
+    file = open('TODO.txt', "a", encoding="utf-8")
+    file.write(note + '\n')
+    file.close()
+
+
+def read_from_file(): # this function will read the content from the file
+    operation = input('do you want to list your To-Do items ? answer "y" for yes and "n" for no: ')
+    if operation == 'y':
+        file = open('TODO.txt', "r+", encoding="utf-8")
+        content_lines = file.readlines()
+        for index, line in enumerate(content_lines):
+            print(f'{index} - {line}')
+        file.close()
+
+
 def to_do():
     print('---WELCOME---')  # welcome massage
-    file = open('TODO.txt', "w+", encoding="utf-8") # create a file
     while True:
-        operation = input("do you want to add a new To-Do item? answer by 'y' for yes and 'n' for no: ")
+        operation = input("do you want to add a new To-Do item? answer by 'y' for yes and 'n' for no or 'exit' to break: ")
         if operation == 'y':
-            note = input('type your note: ')
-            file = open('TODO.txt', "a+", encoding="utf-8")
-            note_plas = f'{note}\n' # to add note in a new line
-            file.write(note_plas)
-            file.close()
+            write_to_file()  
         elif operation == 'n':
-            answer = input('do you want to list your To-Do items ? answer "y" for yes and "n" for no: ')
-            if answer == 'y':
-                file = open('TODO.txt', "r+", encoding="utf-8")
-                content_lines = file.readlines()
-                for line in content_lines:
-                    print(f'The first item is: {line}')
-                file.close()
+            read_from_file()
         elif operation == 'exit':
+            print("Good Bey!")
             break
         else:
             print('This operation is not valid')
